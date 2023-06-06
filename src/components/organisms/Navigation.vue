@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="navigation__sub-menu">
-                <span class="navigation__sub-menu__title">Oranization</span>
+                <span class="navigation__sub-menu__title">Organization</span>
                 <div class="navigation__sub-menu__button-box">
                     <BasicButton v-for="item in bottomMenu" :key="item.label" :data="item" />
                 </div>
