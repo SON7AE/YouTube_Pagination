@@ -51,8 +51,8 @@ const menu = [
         label: 'Reference',
     },
     {
-        icon: 'Jobs',
-        label: 'Jobs',
+        icon: 'Document',
+        label: 'Document',
     },
     {
         icon: 'CareerSite',
