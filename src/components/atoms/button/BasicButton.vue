@@ -25,24 +25,24 @@ const { data } = toRefs(props)
     justify-content: flex-start;
 
     width: calc(100% - 24px);
-    height: 50px;
+    height: 40px;
 
-    padding-left: 24px;
+    padding-left: 12px;
 
     gap: 16px;
 
     cursor: pointer;
 
     &__icon {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
 
         color: $color-white-000;
     }
     &__label {
         padding-top: 4px;
 
-        font-size: 18px;
+        font-size: 16px;
         font-family: 'MBC1961GulimM';
 
         color: $color-white-000;
@@ -51,7 +51,7 @@ const { data } = toRefs(props)
         width: 100%;
 
         background-color: rgba($color-white-000, 0.1);
-        border-radius: 12px;
+        border-radius: 6px;
     }
 }
 </style>

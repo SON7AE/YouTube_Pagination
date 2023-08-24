@@ -90,8 +90,9 @@ const bottomMenu = computed(() => {
     justify-content: center;
 
     width: 100%;
+    height: 67vh;
 
-    gap: 40px;
+    gap: 14px;
 
     &__sub-menu {
         display: flex;
