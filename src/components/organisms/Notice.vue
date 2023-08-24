@@ -22,10 +22,10 @@
         </div>
         <div class="notice__body">
             <div class="notice__body__column">
-                <span class="label" style="width: 30%">Name</span>
-                <span class="label" style="width: 20%">Resume Score</span>
-                <span class="label" style="width: 20%">Skill Match</span>
-                <span class="label" style="width: 30%">Skill</span>
+                <span class="label">Name</span>
+                <span class="label">Resume Score</span>
+                <span class="label">Skill Match</span>
+                <span class="label">Skill</span>
             </div>
             <div class="notice__body__list-box">
                 <NOTICELIST />
@@ -118,6 +118,15 @@ import NOTICELIST from '@components/mocules/List.vue'
             height: 60px;
 
             .label {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                width: 25%;
+                height: 100%;
+
+                margin-left: 16px;
+
                 font-weight: 300;
                 color: $color-white-200;
             }

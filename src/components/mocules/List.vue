@@ -7,15 +7,21 @@
                 <span class="duty">User Experience</span>
             </div>
         </div>
-        <div class="list__resume-score"></div>
-        <div class="list__skill-match"></div>
-        <div class="list__rank">
-            <!-- <div class="chip">Senior</div> -->
+        <div class="list__item">
+            <BARCHART />
+        </div>
+        <div class="list__item">
+            <BARCHART />
+        </div>
+        <div class="list__item">
+            <div class="list__item__chip">Senior</div>
         </div>
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BARCHART from '@components/atoms/chart/BarChart.vue'
+</script>
 
 <style lang="scss" scoped>
 .list {
@@ -27,6 +33,7 @@
     min-height: 72px;
 
     padding: 0 16px;
+    gap: 24px;
 
     background-color: rgba($color-white-200, 0.1);
     border-radius: 16px;
@@ -34,7 +41,9 @@
     &__avatar {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+
+        width: 25%;
 
         gap: 8px;
 
@@ -59,6 +68,24 @@
                 font-weight: 300;
                 color: $color-white-200;
             }
+        }
+    }
+    &__item {
+        width: 25%;
+
+        &__chip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 60px;
+            height: 12px;
+
+            padding: 8px;
+
+            color: $color-blue-000;
+            background-color: rgba($color-blue-000, 0.1);
+            border-radius: 12px;
         }
     }
 }
