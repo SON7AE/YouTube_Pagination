@@ -42,8 +42,8 @@ const { data } = toRefs(props)
     &__label {
         padding-top: 4px;
 
+        font-weight: 400;
         font-size: 16px;
-        font-family: 'MBC1961GulimM';
 
         color: $color-white-000;
     }

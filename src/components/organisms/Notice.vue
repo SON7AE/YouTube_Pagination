@@ -21,28 +21,29 @@
             </div>
         </div>
         <div class="notice__body">
-            <div class="notice__body__column"></div>
+            <div class="notice__body__column">
+                <span class="label" style="width: 30%">Name</span>
+                <span class="label" style="width: 20%">Resume Score</span>
+                <span class="label" style="width: 20%">Skill Match</span>
+                <span class="label" style="width: 30%">Skill</span>
+            </div>
             <div class="notice__body__list-box">
-                <div class="list">
-                    <div class="list__avatar">
-                        <img src="" alt="" />
-                        <div class="list__avatar__text-box">
-                            <span class="name"></span>
-                            <span class="duty"></span>
-                        </div>
-                    </div>
-                    <div class="list__resume-score"></div>
-                    <div class="list__skill-match"></div>
-                    <div class="list__rank">
-                        <div class="chip">Senior</div>
-                    </div>
-                </div>
+                <NOTICELIST />
+                <NOTICELIST />
+                <NOTICELIST />
+                <NOTICELIST />
+                <NOTICELIST />
+                <NOTICELIST />
+                <NOTICELIST />
+                <NOTICELIST />
             </div>
         </div>
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NOTICELIST from '@components/mocules/List.vue'
+</script>
 
 <style lang="scss" scoped>
 .notice {
@@ -106,6 +107,34 @@
         }
     }
     &__body {
+        width: 100%;
+        height: calc(100% - 92px);
+
+        &__column {
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+            height: 60px;
+
+            .label {
+                font-weight: 300;
+                color: $color-white-200;
+            }
+        }
+
+        &__list-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            width: 100%;
+            height: calc(100% - 110px);
+
+            gap: 12px;
+
+            overflow-y: scroll;
+        }
     }
 }
 </style>
