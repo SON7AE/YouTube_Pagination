@@ -24,7 +24,7 @@ const { theme } = toRefs(props)
     padding: 20px;
 
     background-color: $color-white-000;
-    border-radius: 24px;
+    border-radius: 16px;
 
     &[layout-theme='blue'] {
         background-color: $color-blue-000;
