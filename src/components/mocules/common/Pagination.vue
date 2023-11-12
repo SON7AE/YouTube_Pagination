@@ -1,39 +1,33 @@
 <template>
     <div class="pagination">
-        <button class="pagination__button" @click="moveToPrev()">
+        <button class="pagination__button" @click="moveToPrev">
             <img src="src/assets/icons/arrow-left.svg" alt="" />
         </button>
-        <button v-for="index in pages[step]" :key="index" class="pagination__button" @click="movePage(index)" :class="{ active: index === page }">{{ index }}</button>
-        <button class="pagination__button" @click="moveToNext()">
+        <button v-for="index in pages[step]" :key="index" class="pagination__button" @click="movePage(index)" :class="{ active: index === page }">
+            {{ index }}
+        </button>
+        <button class="pagination__button" @click="moveToNext">
             <img src="src/assets/icons/arrow-right.svg" alt="" />
         </button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { toRefs, ref, computed } from 'vue'
-
-interface List {
-    userName: string
-    userRole: string
-    userResumeScore: number
-    userSkillMatch: number
-    userSkill: string
-}
+import { computed, toRefs, ref } from 'vue'
 
 interface Props {
-    data: List[]
+    totalPage: number
 }
 
 const props = defineProps<Props>()
-const { data } = toRefs(props)
+const { totalPage } = toRefs(props)
 
-// 한 페이지당 리스트 갯수 10개로 쪼개기
+// 한 페이지당 리스트 개수 10개로 쪼개기
 const step = ref<number>(0)
 const pages = computed(() => {
     const newArr: number[] = new Array()
 
-    for (let i = 1; i <= data.value.length; i++) {
+    for (let i = 1; i <= totalPage.value; i++) {
         newArr.push(i)
     }
 
@@ -49,16 +43,25 @@ const pages = computed(() => {
     return res
 })
 
-// 해당 페이지로 이동
-// 페이지네이션 버튼 Active Class 기능
+// 해당 페이지로 이동시키는 함수 구현
 const page = ref<number>(1)
 const emit = defineEmits(['send-event'])
 const movePage = (pageIdx: number) => {
     emit('send-event', pageIdx)
     page.value = pageIdx
 }
-const moveToPrev = () => {}
-const moveToNext = () => {}
+const moveToPrev = () => {
+    if (page.value <= 1) return
+    else page.value--
+
+    emit('send-event', page.value)
+}
+const moveToNext = () => {
+    if (page.value < pages.value.length) page.value++
+    else return
+
+    emit('send-event', page.value)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -82,10 +85,9 @@ const moveToNext = () => {}
         padding: 3px 7px;
 
         color: $color-gray-500;
-        font-family: 'Public Sans', sans-serif;
         font-size: 16px;
         font-weight: 700;
-        line-height: 16px; /* 100% */
+        line-height: 16px;
 
         background: transparent;
         border: none;
